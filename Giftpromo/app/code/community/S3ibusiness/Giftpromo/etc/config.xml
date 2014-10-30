@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    S3ibusiness
+ * @package     S3ibusiness_Giftpromo
+ * @copyright   Copyright (c) 2011 S3i Business sarl au. (http://www.s3ibusiness.com)
+ * @author      Ahmed Mahi <1hmedmahi@gmail.com>
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <S3ibusiness_Giftpromo>
+            <version>0.1.5</version>
+        </S3ibusiness_Giftpromo>
+    </modules>
+    <admin>
+        <routers>
+            <giftpromo>
+                <use>admin</use>
+                <args>
+                    <module>S3ibusiness_Giftpromo</module>
+                    <frontName>giftpromo</frontName>
+                </args>
+            </giftpromo>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <promo>
+                <children>
+                    <quote translate="title" module="salesrule">
+                        <children>
+                            <giftpromo translate="title" module="giftpromo">
+                                <title>Manage gifts</title>
+                                <action>giftpromo/adminhtml_index</action>
+                            </giftpromo>
+                        </children>
+                    </quote>
+                </children>
+            </promo>
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <giftpromo translate="title" module="giftpromo">
+                            <title>Manage gift</title>
+                            <sort_order>10</sort_order>
+                        </giftpromo>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <giftpromo translate="title" module="giftpromo">
+                                            <title>GiftPromo Module</title>
+                                            <sort_order>50</sort_order>
+                                        </giftpromo>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <translate>
+            <modules>
+                <S3ibusiness_Giftpromo>
+                    <files>
+                        <default>S3ibusiness_Giftpromo.csv</default>
+                    </files>
+                </S3ibusiness_Giftpromo>
+            </modules>
+        </translate>
+    </adminhtml>
+    <global>
+        <events>
+            <core_block_abstract_to_html_before>
+                <observers>
+                    <s3ibusiness_giftpromo_simple_action>
+                        <type>singleton</type>
+                        <class>giftpromo/observer</class>
+                        <method>deleteDiscountTitle</method>
+                    </s3ibusiness_giftpromo_simple_action>
+                </observers>
+            </core_block_abstract_to_html_before>
+            <controller_action_postdispatch>
+                <observers>
+                    <s3ibusiness_giftpromo_addgift>
+                        <type>singleton</type>
+                        <class>giftpromo/observer</class>
+                        <method>addGifts</method>
+                    </s3ibusiness_giftpromo_addgift>
+                </observers>
+            </controller_action_postdispatch>
+            <adminhtml_block_salesrule_actions_prepareform>
+                <observers>
+                    <s3ibusiness_giftpromo_simple_action>
+                        <type>singleton</type>
+                        <class>giftpromo/observer</class>
+                        <method>addSimpleAction</method>
+                    </s3ibusiness_giftpromo_simple_action>
+                </observers>
+            </adminhtml_block_salesrule_actions_prepareform>
+        </events>
+        <models>
+            <giftpromo>
+                <class>S3ibusiness_Giftpromo_Model</class>
+                <resourceModel>giftpromo_mysql4</resourceModel>
+            </giftpromo>
+            <giftpromo_mysql4>
+                <class>S3ibusiness_Giftpromo_Model_Mysql4</class>
+                <entities>
+                    <giftpromo>
+                        <table>giftpromo</table>
+                    </giftpromo>
+                </entities>
+            </giftpromo_mysql4>
+        </models>
+        <resources>
+            <giftpromo_setup>
+                <setup>
+                    <module>S3ibusiness_Giftpromo</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </giftpromo_setup>
+            <giftpromo_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </giftpromo_write>
+            <giftpromo_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </giftpromo_read>
+        </resources>
+        <blocks>
+            <giftpromo>
+                <class>S3ibusiness_Giftpromo_Block</class>
+            </giftpromo>
+        </blocks>
+        <helpers>
+            <giftpromo>
+                <class>S3ibusiness_Giftpromo_Helper</class>
+            </giftpromo>
+        </helpers>
+    </global>
+</config>

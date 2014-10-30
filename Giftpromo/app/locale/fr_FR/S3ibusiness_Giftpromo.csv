@@ -1,0 +1,27 @@
+Gift Information,Information du cadeau
+Gift name,Nom du cadeau
+Product id,Id produit
+Status,Statut
+Enabled,Activé
+Disabled,Désactivé
+Save Gift,Sauvegarder le cadeau
+Delete Gift,Supprimer le cadeau
+Save and Continue Edit,Sauvegarder et continuer à éditer
+Edit Gift '%s',Editer le cadeau '%s'
+Add Gift,Ajouter le cadeau
+Action,Actions
+Edit,Editer
+Delete,Supprimer
+Are you sure?,Etes-vous s&ucirc;r de vouloir faire &ccedil;a ?
+Change status,Changer le statut
+Gift Manager,Gestion du cadeau
+Gift : '%s',cadeau : '%s'
+Gift News,nouveau cadeau
+Gift does not exist,le cadeau n'existe pas
+Gift was successfully saved,Le cadeau a bien été sauvegardé
+Unable to find gift to save,Impossible de trouver le cadeau
+Gift was successfully deleted,Le cadeau a bien été supprimé
+Please select gift(s),Merci de sélectionner au moins un cadeau
+Total of %d record(s) were successfully deleted,Au total&#8218; %d cadeau(s) a/ont été supprimés
+Please select another product id,Merci de sélectionner un autre id produit
+Manage gifts,Gestion des cadeaux
