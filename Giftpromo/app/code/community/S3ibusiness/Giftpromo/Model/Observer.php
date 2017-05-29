@@ -28,7 +28,7 @@ class S3ibusiness_Giftpromo_Model_Observer
                 foreach ($this->_giftsCollection as $gift) {
                     if ($rule->getSimpleAction() == 'gift_product_' . $gift->getGiftId()) {
                         $store_labels = $rule->getStoreLabels();
-                        $blockTitle   = array_diff(array_diff(array_diff($blockTitle, array($rule->getName())), ray($store_labels[0])), array($store_labels[1]));
+                        $blockTitle   = array_diff(array_diff(array_diff($blockTitle, array($rule->getName())), array($store_labels[0])), array($store_labels[1]));
                     }
                 }
             }
